@@ -10,9 +10,7 @@ Tweets containing these key words are collected, but these can be changed to any
     on_error(self, status)
  Error handling function: This function allows us to reconnect in 5 seconds automatically if connection drops (i.e. if  too many api calls).
 
-## Link to collected data + twitter feed downtimes 
-
-Collected data:
+## twitter feed downtimes 
 
 Tweets were collected on personal laptop so it was difficult to keep laptop on for 3 months consistently therefore there will be gaps in the dataset recorded in *Recorded downtimes.docx* 
 
