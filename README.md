@@ -1,7 +1,7 @@
 # bitcoin-price-prediction
 
 
-## Using Twitter BTC price sentiment 
+## Variable 1 - Twitter BTC price sentiment 
 
 ### Collecting Tweets (Tweepy)
 
