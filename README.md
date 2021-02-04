@@ -17,6 +17,9 @@ Tweets containing these key words are collected, but these can be changed to any
 
 Tweets were collected on personal laptop so it was difficult to keep laptop on for 3 months consistently therefore there will be gaps in the dataset recorded in *Recorded downtimes.docx* 
 
-## Cleaning Tweets 
+## Finding Labelled data for training
+Labeled data with positive, negative and neutral sentiment assigned to BTC tweet: https://data.world/mercal/btc-tweets-sentiment
 
-"cleaning tweets data.py" This file removes emojis, "@" symbols and URLs from tweets, ensurng useful and interpretable information is provided to the Neural Network
+"cleaning tweets data.py" This file removes emojis, "@" symbols and URLs from tweets, ensurng useful and interpretable information is provided to the Neural Network. Duplicate tweets were removed aswell. 
+
+The Neural Network that trained on just 2 classes (neutral and positive) were significantly more accurate than training on 3 classes (positive, neutral and negative), moreover negative sentiment made up less than 10% of tweets in the dataset. 
