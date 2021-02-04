@@ -1,4 +1,7 @@
-# bitcoin-tweet-collector
+# bitcoin-price-prediction
+
+
+## Using Twiiter BTC price sentiment 
 
 ### Collecting Tweets
 
