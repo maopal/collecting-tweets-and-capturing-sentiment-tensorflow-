@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import re
 
 ## IMPORT DATA/ COULD BE DONE USING LIVE DATA STREAM ASWELL IF YOU CONNECTION TO DATABASE
-df = pd.read_csv(r"BTC_tweets_daily_example.csv")
+df = pd.read_csv(r"BTC_tweets_daily_example.csv")  # data came from: https://data.world/mercal/btc-tweets-sentiment
 tweetcolname= 'Tweet'
 
 """
