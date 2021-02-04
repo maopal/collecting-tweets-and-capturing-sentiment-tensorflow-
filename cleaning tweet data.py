@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Jan 23 17:07:13 2021
 
-@author: Main
-"""
 
 import numpy as np
 import pandas as pd
@@ -11,7 +7,8 @@ import matplotlib.pyplot as plt
 import re
 
 ## IMPORT DATA/ COULD BE DONE USING LIVE DATA STREAM ASWELL IF YOU CONNECTION TO DATABASE
-df = pd.read_csv(r"tester1.csv")
+df = pd.read_csv(r"BTC_tweets_daily_example.csv")
+tweetcolname= 'Tweet'
 
 """
 Cleans @ symbol from tweet strings data
@@ -33,7 +30,9 @@ def clean_at(tweets):
     pass
  return tweets
 
-df['tweet']= [clean_at(i) for i in df['tweet']]
+df[tweetcolname]= [clean_at(i) for i in df[tweetcolname]]
+df = df.dropna()
+
 
 """
 Cleans "RT" at the beginning of tweets data
@@ -48,7 +47,7 @@ def clean_rt(tweets):
  return tweets
 
 
-df['tweet']= [clean_rt(i) for i in df['tweet']]
+df[tweetcolname]= [clean_rt(i) for i in df[tweetcolname]]
 
 """
 Cleans URLs from TWEETS
@@ -70,8 +69,8 @@ def clean_url(tweets):
     pass
  return tweets
 
-df['tweet']= [clean_url(i) for i in df['tweet']]
-
+df[tweetcolname]= [clean_url(i) for i in df[tweetcolname]]
+df = df.dropna()
 
 """
 Cleans emojis from tweets
@@ -100,12 +99,39 @@ def deEmojify(text):
     return regrex_pattern.sub(r'',text)
 
 
-df["tweet"] = [deEmojify(i) for i in df["tweet"]]
+df[tweetcolname] = [deEmojify(i) for i in df[tweetcolname]]
+df = df.dropna()
 
 
 
+indexneutral = df[df['Sentiment'] == "['neutral']"].index
+indexpos = df[df['Sentiment'] == "['positive']"].index
+indexneg = df[df['Sentiment'] == "['negative']"].index
+
+df.loc[indexneutral,'Sentiment'] = 'neutral' 
+df.loc[indexpos,'Sentiment'] = 'positive' 
+df.loc[indexneg,'Sentiment'] = 'negative' 
+
+indexneutral = df[df['sent_score'] == 0].index
+indexpos = df[df['sent_score'] == 1].index
+indexneg = df[df['sent_score'] == -1].index
+
+df.loc[indexneutral,'sent_score'] = 0
+df.loc[indexpos,'sent_score'] = 1
+df.loc[indexneg,'sent_score'] = 2
+
+indexzero = df[df['Sentiment'] == "0"].index
+blanktweetindex = df[df['Tweet'] == ''].index
+
+df = df.dropna()
+
+df.drop(indexzero , inplace=True)
+df.drop(blanktweetindex , inplace=True)
+
+sorte = df.sort_values(['Tweet', 'sent_score'], ascending = [True, False])
+uniq = sorte.groupby('Tweet').first().reset_index()
 
 
-
+#uniq.to_csv("uniquetweets.csv") 
 
 
