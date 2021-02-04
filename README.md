@@ -1,7 +1,7 @@
 # bitcoin-price-prediction
 
 
-## Using Twiiter BTC price sentiment 
+## Using Twitter BTC price sentiment 
 
 ### Collecting Tweets
 
