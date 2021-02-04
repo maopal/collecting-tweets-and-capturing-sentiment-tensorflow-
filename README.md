@@ -3,7 +3,7 @@
 
 ## Using Twitter BTC price sentiment 
 
-### Collecting Tweets
+### Collecting Tweets (Tweepy)
 
 *streaming_with_error.py* file collects tweets, number of likes on each tweet, number of retweets on each tweet and datetime of tweet.  
 
