@@ -29,7 +29,11 @@ The dataset is only made up of tweets from an **hour period on a single day**, t
 
 I do not fully agree with the sentiment labels, I believe some labels to be neutral when they are positive, I think for a more accurate dataset I would have to manually label data, but I am resource constrained and don't have time to manual label data. 
 
-I removed tweets that were repeated to prevent overfitting to this dataset. See *Unique-Tweets.csv* for cleaned labelled dataset
+I removed tweets that were repeated to prevent overfitting to this dataset. See *Unique-Tweets.csv* for cleaned labelled dataset.
+
+
+### Neural Network
+
 
 
 
