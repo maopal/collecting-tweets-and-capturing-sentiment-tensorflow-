@@ -34,6 +34,7 @@ I removed tweets that were repeated to prevent overfitting to this dataset. See 
 
 ### Neural Network
 
+*BTC tweet sentiment.ipynb* shows step by step methododlogy of how I trained the Neural Network. 
 
 
 
