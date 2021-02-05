@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt 
 import re
 
 ## IMPORT DATA/ COULD BE DONE USING LIVE DATA STREAM ASWELL IF YOU CONNECTION TO DATABASE
-df = pd.read_csv(r"BTC_tweets_daily_example.csv")  # data came from: https://data.world/mercal/btc-tweets-sentiment
+df = pd.read_csv(r"BTC_tweets_daily_example.csv")
 tweetcolname= 'Tweet'
 
 """
@@ -121,15 +122,20 @@ df.loc[indexpos,'sent_score'] = 1
 df.loc[indexneg,'sent_score'] = 2
 
 indexzero = df[df['Sentiment'] == "0"].index
+indexneg = df[df['Sentiment'] == "negative"].index
 blanktweetindex = df[df['Tweet'] == ''].index
 
 df = df.dropna()
 
 df.drop(indexzero , inplace=True)
+df.drop(indexneg , inplace=True)
 df.drop(blanktweetindex , inplace=True)
 
 sorte = df.sort_values(['Tweet', 'sent_score'], ascending = [True, False])
 uniq = sorte.groupby('Tweet').first().reset_index()
+
+
+df.to_csv("cleanedbtctestdata1.csv")
 
 
 #uniq.to_csv("uniquetweets.csv") 
