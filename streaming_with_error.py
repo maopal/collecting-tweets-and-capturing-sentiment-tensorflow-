@@ -14,10 +14,10 @@ import sqlite3
 import time 
 
 #consumer key, consumer secret, access token, access secret.
-ckey="eL0ocs5U4RixeM3W92y7TP1kP"
-csecret="wtMO6P4j78S9fp0M1Vbh7GUKz1WtMVuirz2NXXLBhYSoWwnAAu"
-atoken="1233555223374901258-sVOqza4c74RVcnJeh2Vb3BC6YFjBBt"
-asecret="GekBrd1dJDzX09g1y3eO7OhVzdvzRT1u6HsvZSM21GWMq"
+ckey="ckey"
+csecret="csecret"
+atoken="atoken"
+asecret="asecret"
 
 conn = sqlite3.connect('etwitter.db')
 c = conn.cursor()
