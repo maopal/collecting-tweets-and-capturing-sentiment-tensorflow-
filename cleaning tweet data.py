@@ -134,10 +134,6 @@ df.drop(blanktweetindex , inplace=True)
 sorte = df.sort_values(['Tweet', 'sent_score'], ascending = [True, False])
 uniq = sorte.groupby('Tweet').first().reset_index()
 
-
-df.to_csv("cleanedbtctestdata1.csv")
-
-
-#uniq.to_csv("uniquetweets.csv") 
+uniq.to_csv("uniquetweets.csv") 
 
 
